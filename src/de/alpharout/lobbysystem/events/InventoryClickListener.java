@@ -7,7 +7,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class InventoryClickListener implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
-
         try {
             if(event.getClickedInventory().getName().equals("§8» §cNavigator")) {
                 event.setCancelled(true);
@@ -20,7 +19,6 @@ public class InventoryClickListener implements Listener {
         } catch (Exception e) {
 
         }
-
 
 
     }
