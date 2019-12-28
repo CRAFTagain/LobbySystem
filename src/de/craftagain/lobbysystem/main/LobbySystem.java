@@ -1,6 +1,8 @@
 package de.craftagain.lobbysystem.main;
 
 import de.alpharout.lobbysystem.data.Data;
+import de.alpharout.lobbysystem.events.InventoryClickListener;
+import de.alpharout.lobbysystem.events.PlayerInteractListener;
 import de.alpharout.lobbysystem.events.PlayerJoinListener;
 import de.craftagain.lobbysystem.command.CMD_info;
 import org.bukkit.Bukkit;
@@ -17,6 +19,8 @@ public class LobbySystem extends JavaPlugin {
         pluginManager = Bukkit.getPluginManager();
 
         pluginManager.registerEvents(new PlayerJoinListener(), this);
+        pluginManager.registerEvents(new PlayerInteractListener(), this);
+        pluginManager.registerEvents(new InventoryClickListener(), this);
 
         getCommand("info").setExecutor(new CMD_info());
     }
