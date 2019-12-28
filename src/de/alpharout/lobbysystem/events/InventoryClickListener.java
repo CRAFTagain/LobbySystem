@@ -7,9 +7,10 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class InventoryClickListener implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
+        event.setCancelled(true);
+
         try {
             if(event.getClickedInventory().getName().equals("§8» §cNavigator")) {
-                event.setCancelled(true);
 
                 switch (event.getCurrentItem().getItemMeta().getDisplayName()) {
                     case "§8» §bSurvive it!":

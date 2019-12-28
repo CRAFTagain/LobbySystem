@@ -21,8 +21,7 @@ public class CMD_info implements CommandExecutor {
                     return false;
 
                 player.sendMessage(Data.getPrefix() + "§7Version: §a" + Data.getVersion());
-                player.sendMessage(Data.getPrefix() + "§7Author: - §alpharout");
-                player.sendMessage(Data.getPrefix() + "§7Author: - §aCRAFTagain");
+                player.sendMessage(Data.getPrefix() + "§7Authors: §6alphaR0ut §7(Head-Developer), §6CRAFTagain §7(2. Head-Developer)");
                 return true;
             }
         }
