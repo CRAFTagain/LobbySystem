@@ -2,6 +2,8 @@ package de.alpharout.lobbysystem.data;
 
 import org.bukkit.Bukkit;
 
+import java.util.ArrayList;
+
 public class Data {
     private static String name = "§6System";
     private static String prefix = "§7[" + name + "§7] ";
