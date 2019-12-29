@@ -24,6 +24,8 @@ public class LobbySystem extends JavaPlugin {
         pluginManager.registerEvents(new InventoryClickListener(), this);
 
         getCommand("info").setExecutor(new CMD_info());
+
+        Bukkit.getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
     }
 
     @Override
