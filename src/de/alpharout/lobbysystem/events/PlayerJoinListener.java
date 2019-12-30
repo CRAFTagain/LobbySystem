@@ -3,7 +3,6 @@ package de.alpharout.lobbysystem.events;
 import de.alpharout.lobbysystem.api.ItemBuilder;
 import de.alpharout.lobbysystem.data.Data;
 import de.craftagain.lobbysystem.scoreboard.ScoreboardManager;
-import de.craftagain.lobbysystem.utils.ActionBarManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -40,7 +39,5 @@ public class PlayerJoinListener implements Listener {
 
         event.setJoinMessage(Data.getPrefix() + "§6" + player.getName() + "§7 ist dem Server beigetreten.");
         ScoreboardManager.addScoreboard(player);
-
-        ActionBarManager.addActionBarText(player, Data.getNews());
     }
 }
