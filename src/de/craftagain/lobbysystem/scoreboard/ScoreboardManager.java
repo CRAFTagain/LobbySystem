@@ -52,9 +52,9 @@ public class ScoreboardManager {
             @Override
             public void run() {
 
-            int online = Bukkit.getOnlinePlayers().size();
-            players.setPrefix("§8» §6" + online);
-            obj.getScore("§a").setScore(3);
+                int online = Bukkit.getOnlinePlayers().size();
+                players.setPrefix("§8» §6" + online);
+                obj.getScore("§a").setScore(3);
             }
         },0, 10);
 
