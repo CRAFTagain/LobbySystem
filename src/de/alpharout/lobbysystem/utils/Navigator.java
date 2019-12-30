@@ -13,7 +13,7 @@ public class Navigator {
     public static void openNavigator(Player player) {
         Inventory inventory = Bukkit.createInventory(null, 3*9, "§8» §cNavigator");
 
-        ItemStack surviveItItem = ItemBuilder.createItem("§8» §bSurvive it!", Material.STONE_AXE);
+        ItemStack surviveItItem = ItemBuilder.createItem("§8» §bSurvival Empire", Material.STONE_AXE);
         ItemStack placeholderItem = ItemBuilder.createItem(" ", Material.STAINED_GLASS_PANE);
 
         inventory.setItem(2, placeholderItem);

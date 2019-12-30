@@ -10,3 +10,6 @@ commands:
     usage: /info
     description: This command shows you the basic information about this plugin
     permission: System.info
+  settings:
+    name: settings
+    description: Edit main cords.
