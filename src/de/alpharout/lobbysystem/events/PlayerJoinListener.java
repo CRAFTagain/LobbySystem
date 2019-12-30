@@ -2,9 +2,13 @@ package de.alpharout.lobbysystem.events;
 
 import de.alpharout.lobbysystem.api.ItemBuilder;
 import de.alpharout.lobbysystem.data.Data;
+import de.craftagain.lobbysystem.main.LobbySystem;
 import de.craftagain.lobbysystem.scoreboard.ScoreboardManager;
-import de.craftagain.lobbysystem.utils.ActionBarManager;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,10 +20,33 @@ import java.sql.SQLException;
 
 public class PlayerJoinListener implements Listener {
     Player player;
+    FileConfiguration configuration;
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) throws SQLException {
         player = event.getPlayer();
+        configuration = LobbySystem.getInstance().getConfig();
+
+        double x = configuration.getDouble("settings.spawn.x");
+        double y = configuration.getDouble("settings.spawn.y");
+        double z = configuration.getDouble("settings.spawn.z");
+        double yaw = configuration.getDouble("settings.spawn.yaw");
+        double pitch = configuration.getDouble("settings.spawn.pitch");
+        String worldName = configuration.getString("settings.spawn.world");
+
+        Location spawnLocation = new Location(Bukkit.getWorld(worldName), x, y, z, (float) yaw, (float) pitch);
+
+        Bukkit.getScheduler().scheduleSyncDelayedTask(LobbySystem.getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                player.teleport(spawnLocation);
+            }
+        }, 1);
+
+
+
+        player.getInventory().clear();
+        player.setGameMode(GameMode.ADVENTURE);
 
         ItemStack navigatorItem = ItemBuilder.createItem("§8» §bNavigator", Material.COMPASS);
         ItemStack changelogItem = ItemBuilder.createItem("§8» §aNews", Material.PAPER);
@@ -40,6 +67,5 @@ public class PlayerJoinListener implements Listener {
 
         event.setJoinMessage(Data.getPrefix() + "§6" + player.getName() + "§7 ist dem Server beigetreten.");
         ScoreboardManager.addScoreboard(player);
-        ActionBarManager.addActionBarText(player, Data.getNews());
     }
 }

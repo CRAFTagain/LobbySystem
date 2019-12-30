@@ -28,6 +28,7 @@ public class LobbySystem extends JavaPlugin {
         pluginManager.registerEvents(new InventoryClickListener(), this);
         pluginManager.registerEvents(new PlayerDropItemListener(), this);
         pluginManager.registerEvents(new PlayerDamageListener(), this);
+        pluginManager.registerEvents(new PlayerQuitListener(), this);
 
         getCommand("info").setExecutor(new CMD_info());
         getCommand("settings").setExecutor(new CMD_settings());
