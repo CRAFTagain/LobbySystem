@@ -9,6 +9,7 @@ public class Data {
     private static String prefix = "§7[" + name + "§7] ";
     private static String version = "v0.0.1 DEV-ALPHA";
     private static String authors = "alphaR0ut & CRAFTagain";
+    private static String news = "§aÜberarbeiteter Navigator";
 
     public static String getName() {
         return name;
@@ -24,6 +25,10 @@ public class Data {
 
     public static String getAuthors() {
         return authors;
+    }
+
+    public static String getNews(){
+        return news;
     }
 
     public static void log(String msg) {
